@@ -18,6 +18,9 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
 
+        //var test = "this is a test";
+        //return res.test;
+
         var difference = 40;
         var matchName = "";
         var matchPhoto = "";
