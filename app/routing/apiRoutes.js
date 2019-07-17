@@ -1,14 +1,5 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================
 
 var friendData = require("../data/friends");
-
-// ===============================================================================
-// ROUTING
-// ===============================================================================
 
 module.exports = function(app) {
 
@@ -20,43 +11,49 @@ module.exports = function(app) {
 
         //var test = "this is a test";
         //return res.test;
+        //console.log(friendData);
 
-        var difference = 40;
+        var difference = 40; // This is the max difference possible - i.e. if there is a friend in the default array with all 5s and someone enters all 1s
         var matchName = "";
         var matchPhoto = "";
 
-        // For-each loop to go through the data in friends.js
-        friends.forEach(function(friend) {
+        // For-each loop to go through the array data in friends.js
+        friendData.forEach(function(friends) {
 
             var comparisonArray = [];
-            var totalDifference = 40;
+            var totalDifference = 0;
 
-            function add(total, num) {
+            /* function add(total, num) {
                 return total + num;
+            } */
+
+            for (var i = 0; i < friends.scores.length; i++) {
+                comparisonArray.push(Math.abs(parseInt(req.body.scores[i]) - parseInt(friends.scores[i])));
+                console.log("comparisonArray: " + comparisonArray);
             }
 
-            for (var i = 0; i < friend.scores.length; i++) {
-                comparisonArray.push(Math.abs(parseInt(req.body.scores[i]) - parseInt(friend.scores[i])));
+            // This adds up all values in the comparison array
+            var reducer = (accumulator, currentValue) => accumulator + currentValue;
+            totalDifference = comparisonArray.reduce(reducer, 0);
+            console.log("totalDifference: " + totalDifference);
 
-            }
-
-            totalDifference = comparisonArray.reduce(add, 0);
-
-            if (totalDifference < difference) {
-                
+            if (totalDifference <= difference) {       
+                // As the loop occurs, compare to the default difference value and update when lower, save name and photo into our variables
                 difference = totalDifference;
-                matchName = friend.name;
-                matchPhoto = friend.photo;
-
+                matchName = friends.name;
+                matchPhoto = friends.photo;
+                console.log("difference: " + difference);
             }
         });
 
+        // Respond back to the client with the name and photo of the closest match
         res.json({
             name: matchName,
             photo: matchPhoto
         });
 
-        friends.push(req.body);
+        // Push new friend into default array
+        friendData.push(req.body);
     });
 
 

@@ -6,17 +6,12 @@
   <meta charset="UTF-8">
   <title>FriendFinder</title>
 
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-  <!-- Font Awesome Glyphicons -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
-  <!-- Chosen -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
 
@@ -47,7 +42,7 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Question 2</strong></h3>
+    <h3 class="mt-3"><strong>Question 2</strong></h3>
     <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
     <select class="chosen-select" id="q2">
       <option value=""></option>
@@ -59,7 +54,7 @@
     </select>
 
 
-    <h3><strong>Question 3</strong></h3>
+    <h3 class="mt-3"><strong>Question 3</strong></h3>
     <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
     <select class="chosen-select" id="q3">
       <option value=""></option>
@@ -71,7 +66,7 @@
     </select>
 
 
-    <h3><strong>Question 4</strong></h3>
+    <h3 class="mt-3"><strong>Question 4</strong></h3>
     <h4>You rarely do something just out of sheer curiosity.</h4>
     <select class="chosen-select" id="q4">
       <option value=""></option>
@@ -83,7 +78,7 @@
     </select>
 
 
-    <h3><strong>Question 5</strong></h3>
+    <h3 class="mt-3"><strong>Question 5</strong></h3>
     <h4>People can rarely upset you.</h4>
     <select class="chosen-select" id="q5">
       <option value=""></option>
@@ -95,7 +90,7 @@
     </select>
 
 
-    <h3><strong>Question 6</strong></h3>
+    <h3 class="mt-3"><strong>Question 6</strong></h3>
     <h4>It is often difficult for you to relate to other people’s feelings.</h4>
     <select class="chosen-select" id="q6">
       <option value=""></option>
@@ -107,7 +102,7 @@
     </select>
 
 
-    <h3><strong>Question 7</strong></h3>
+    <h3 class="mt-3"><strong>Question 7</strong></h3>
     <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
     <select class="chosen-select" id="q7">
       <option value=""></option>
@@ -118,7 +113,7 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Question 8</strong></h3>
+    <h3 class="mt-3"><strong>Question 8</strong></h3>
     <h4>You rarely get carried away by fantasies and ideas.</h4>
     <select class="chosen-select" id="q8">
       <option value=""></option>
@@ -129,7 +124,7 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Question 9</strong></h3>
+    <h3 class="mt-3"><strong>Question 9</strong></h3>
     <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
     <select class="chosen-select" id="q9">
       <option value=""></option>
@@ -140,7 +135,7 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Question 10</strong></h3>
+    <h3 class="mt-3"><strong>Question 10</strong></h3>
     <h4>You feel more energetic after spending time with a group of people.</h4>
     <select class="chosen-select" id="q10">
       <option value=""></option>
@@ -169,17 +164,18 @@
 
   <!-- Modal -->
   <div id="results-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
 
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title"><strong>Best Match</strong></h2>
+          <h2 class="modal-title text-left"><strong>Best Match</strong></h2>
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <span aria-hidden="true">&times;</span>
         </div>
         <div class="modal-body">
           <h2 id="match-name"></h2>
-          <img id="match-img" src="" alt="">
+          <img id="match-img" class="img-fluid" src="" alt="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -190,26 +186,6 @@
   </div>
 
   <script type="text/javascript">
-    // Chosen CSS
-    var config = {
-      ".chosen-select": {},
-      ".chosen-select-deselect": {
-        allow_single_deselect: true
-      },
-      ".chosen-select-no-single": {
-        disable_search_threshold: 10
-      },
-      ".chosen-select-no-results": {
-        no_results_text: "Oops, nothing found!"
-      },
-      ".chosen-select-width": {
-        width: "95%"
-      }
-    };
-
-    for (var selector in config) {
-      $(selector).chosen(config[selector]);
-    }
 
     // Capture the form inputs
     $("#submit").on("click", function(event) {

@@ -7,13 +7,13 @@ var friends = [
 	},
 	{
 		name: "Tony Stark",
-		photo: "https://img.cinemablend.com/filter:scale/quill/d/9/5/a/c/9/d95ac9d6f0acd56e12b9452301c763cd1aeffe51.jpg?mw=600",
+		photo: "https://specials-images.forbesimg.com/imageserve/5d2392b234a5c400084abe23/960x0.jpg?fit=scale",
 		scores: [5,1,5,1,3,5,5,4,2,2]
 	},
 	{
 		name: "Natasha Romanoff",
 		photo: "https://66.media.tumblr.com/9dabd23fc7c7beb9e89f686b9c7efecc/tumblr_owfv7qcojg1wo8ooho6_250.png",
-		score: [2,4,4,5,5,4,5,4,3,3]
+		scores: [2,4,4,5,5,4,5,4,3,3]
 	}
 ];
 
