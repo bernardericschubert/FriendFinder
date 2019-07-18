@@ -9,9 +9,9 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
 
-        var difference = 40; // This is the max difference possible - i.e. if there is a friend in the default array with all 5s and someone enters all 1s
         var matchName = "";
         var matchPhoto = "";
+        var maxDifference = 40; // This is the max difference possible - i.e. if there is a friend in the default array with all 5s and someone enters all 1s
 
         // For-each loop to go through the array data in friends.js
         friendData.forEach(function(friends) {
@@ -29,9 +29,9 @@ module.exports = function(app) {
             totalDifference = comparisonArray.reduce(reducer, 0);
             //console.log("totalDifference: " + totalDifference);
 
-            if (totalDifference <= difference) {       
+            if (totalDifference <= maxDifference) {       
                 // As the loop occurs, compare to the default difference value and update when lower, save name and photo into our variables
-                difference = totalDifference;
+                maxDifference = totalDifference;
                 matchName = friends.name;
                 matchPhoto = friends.photo;
                 //console.log("difference: " + difference);
