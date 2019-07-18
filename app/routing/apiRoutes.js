@@ -9,10 +9,6 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
 
-        //var test = "this is a test";
-        //return res.test;
-        //console.log(friendData);
-
         var difference = 40; // This is the max difference possible - i.e. if there is a friend in the default array with all 5s and someone enters all 1s
         var matchName = "";
         var matchPhoto = "";
@@ -22,10 +18,6 @@ module.exports = function(app) {
 
             var comparisonArray = [];
             var totalDifference = 0;
-
-            /* function add(total, num) {
-                return total + num;
-            } */
 
             for (var i = 0; i < friends.scores.length; i++) {
                 comparisonArray.push(Math.abs(parseInt(req.body.scores[i]) - parseInt(friends.scores[i])));
