@@ -21,20 +21,20 @@ module.exports = function(app) {
 
             for (var i = 0; i < friends.scores.length; i++) {
                 comparisonArray.push(Math.abs(parseInt(req.body.scores[i]) - parseInt(friends.scores[i])));
-                console.log("comparisonArray: " + comparisonArray);
+                //console.log("comparisonArray: " + comparisonArray);
             }
 
             // This adds up all values in the comparison array
             var reducer = (accumulator, currentValue) => accumulator + currentValue;
             totalDifference = comparisonArray.reduce(reducer, 0);
-            console.log("totalDifference: " + totalDifference);
+            //console.log("totalDifference: " + totalDifference);
 
             if (totalDifference <= difference) {       
                 // As the loop occurs, compare to the default difference value and update when lower, save name and photo into our variables
                 difference = totalDifference;
                 matchName = friends.name;
                 matchPhoto = friends.photo;
-                console.log("difference: " + difference);
+                //console.log("difference: " + difference);
             }
         });
 
@@ -47,6 +47,5 @@ module.exports = function(app) {
         // Push new friend into default array
         friendData.push(req.body);
     });
-
 
 };
